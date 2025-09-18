@@ -1,0 +1,16 @@
+---
+- name: Update n1 servers
+  hosts: n1
+
+  tasks:
+    - name: Create Directory
+      ansible.builtin.file:
+        path: /home/ec2-user/ecommerce_docs
+        state: directory
+    - name: install git 
+      ansible.builtin.yum:
+        name: git
+        state: present
+      become: true
+
+...
