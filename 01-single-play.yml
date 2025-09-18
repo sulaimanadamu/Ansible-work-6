@@ -7,4 +7,11 @@
       ansible.builtin.file:
         path: /home/ec2-user/ecommerce_docs
         state: directory
+
+    - name: install httpd
+      yum:
+        name: httpd
+        state: present
+      become: true
+
 ...
