@@ -7,10 +7,4 @@
       ansible.builtin.file:
         path: /home/ec2-user/ecommerce_docs
         state: directory
-    - name: install git 
-      ansible.builtin.yum:
-        name: git
-        state: present
-      become: true
-
 ...
