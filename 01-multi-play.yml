@@ -1,3 +1,4 @@
+---
 - name: create multiple directory in the user home.
   hosts: n2
 
@@ -29,3 +30,4 @@
     ansible.builtin.file:
       path: /home/ec2-user/new_dir_group1
       state: directory
+...
