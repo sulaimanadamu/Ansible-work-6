@@ -1,0 +1,31 @@
+- name: create multiple directory in the user home.
+  hosts: n2
+
+  tasks:
+  - name: Create Directory
+    ansible.builtin.file:
+      path: /home/ec2-user/new_dir_1
+      state: directory
+
+  - name: Create Directory
+    ansible.builtin.file:
+      path: /home/ec2-user/new_dir_2
+      state: directory
+
+- name: create folder in multiple servers using group name
+  hosts: g2
+
+  tasks:
+  - name: Create Directory
+    ansible.builtin.file:
+      path: /home/ec2-user/new_dir_group2
+      state: directory
+
+- name: create folder in multiple servers using group name
+  hosts: g1
+
+  tasks:
+  - name: Create Directory
+    ansible.builtin.file:
+      path: /home/ec2-user/new_dir_group1
+      state: directory
