@@ -1,0 +1,16 @@
+---
+- name: Deploy a web app
+  hosts: n2
+  become: true
+
+  tasks:
+  - name: install git
+    yum:
+      name: git
+      state: present
+
+  - name: use git to pull the file to destination on server
+    git:
+      repo: https://github.com/CeeyIT-Solutions/ecomm-3.git
+      dest: /var/www/html
+...
