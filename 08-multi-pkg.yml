@@ -1,0 +1,46 @@
+---
+- name: install http server
+  hosts: apt-server
+  become: true
+
+  tasks:
+  - name: install apache2
+    apt:
+      name: apache2
+      state: present
+    when: ansible_distribution == "Ubuntu"
+
+  - name: start apache2
+    service:
+      name: apache2
+      state: started
+    when: ansible_distribution == "Ubuntu"
+
+  - name: enable apache
+    service:
+      name: apache2
+      enabled: true
+    when: ansible_distribution == "Ubuntu"
+
+- name: install httpd servers
+  hosts: yum-server
+  become: true
+
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    when: ansible_distribution == "Amazon"
+
+  - name: Start and enable the httpd
+    service:
+      name: httpd
+      state: started
+    when: ansible_distribution == "Amazon"
+
+  - name: Enable httpd
+    service:
+      name: httpd
+      enabled: true
+    when: ansible_distribution == "Amazon"
