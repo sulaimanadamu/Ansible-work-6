@@ -1,0 +1,19 @@
+---
+- name: Site under maintenance
+  hosts: n2
+  become: true
+
+  tasks:
+  # remote_src assumes the file to be copied is on the remote host
+  - name: Backup the index.html
+    ansible.builtin.copy:
+    src: /var/www/html/index.html
+    dest: /var/www/html/index.html.bak
+    remote_src: true
+    ignore_errors: true
+
+  # copy file from the control node to the destination.
+  - name: update maintenance
+    ansible.builtin.copy:
+      src: offline-page.html
+      dest: /var/www/html/index.html
