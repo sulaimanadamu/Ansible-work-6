@@ -1,6 +1,7 @@
 ---
 - name: install http server
   hosts: apt-server
+  become: true
 
   tasks:
   - name: install apache2
@@ -17,3 +18,4 @@
     service:
       name: apache2
       enabled: true
+...
