@@ -1,6 +1,7 @@
 ---
 - name: Static page
   hosts: "centOs"
+  become: true
 
   tasks:
   - name: update status page
