@@ -1,0 +1,10 @@
+---
+- name: Static page
+  hosts: "centOs"
+
+  tasks:
+  - name: update statuc page
+    copy:
+      src: static.html
+      dest: /var/www/html/static.html
+...
