@@ -3,7 +3,7 @@
   hosts: "centOs"
 
   tasks:
-  - name: update statuc page
+  - name: update status page
     copy:
       src: static.html
       dest: /var/www/html/static.html
