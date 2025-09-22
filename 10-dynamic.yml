@@ -1,0 +1,10 @@
+---
+- name: Static Page
+  hosts: apt-server
+  become: true
+
+  tasks:
+  - name: update static Page
+    template:
+      src: dynamic.j2
+      dest: /var/www/html/dynamic.html
