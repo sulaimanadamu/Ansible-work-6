@@ -1,6 +1,6 @@
 ---
 - name: Static page
-  hosts: "centOs"
+  hosts: centOs 
   become: true
 
   tasks:
