@@ -1,8 +1,9 @@
 ---
-- name: Static Page
+- name: Variable Demo
   hosts: apt-server
   become: true
-
+  vars:
+    myusername: Sulaiman
   tasks:
   - name: update static Page
     template:
